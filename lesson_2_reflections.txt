@@ -1,7 +1,7 @@
 What happens when you initialize a repository? Why do you need to do it?
 
 When you initialise you create the .git file that tracks all the commits. You
-need to do that so that versions are tracked and added.
+need to do that so that versions of your files are tracked and added.
 
 $ git add <file>
 e.g. $ git add helloworld.py
@@ -18,3 +18,85 @@ reset. For example, if you accidentally add lesson_2_reflections.txt, but don’
 want it to be committed yet, run git reset lesson_2_reflections.txt and the file
 will be removed from the staging area, but it will still be in your working
 directory.
+
+How is the staging area different from the working directory and the repository?
+What value do you think it offers?
+
+The staging area offers a 'collection' of the latest version of all the files
+that you want to commit at any one time. If you are a team working on a larger
+project, each team member can add their changes to a staging area before
+committing. It also makes it easy for you to see what will files be changed with
+the commit you are planning.
+
+
+$ git commit
+
+This automatically opens Atom so that you can fill in a commit message.
+
+$ git commit -m "Commit message"
+You can also specify a commit message via the command line by running
+git commit -m "Commit message" instead of just git commit. It's still a good
+idea to get an editor set up, since this will make it easier to write long
+commit messages that fully describe the change.
+
+While commit message style varies from person to person, this style guide
+describes some common best practices when writing commit messages:
+http://udacity.github.io/git-styleguide/
+
+the staging area is a copy of the most recent commit, until you add changes to
+it.
+
+$ git diff
+
+git diff with no arguments will compare the working directory and the staging
+area. This will show changes you've made that you haven't added to the staging
+area yet.
+
+$ git diff --staged
+
+git diff --staged compares differences between the staging area and the latest
+commit, and is often used right before committing, to check that the changes
+really are what you want to commit.
+
+$ git reset --hard
+this discards any changes in the working directory OR staging area! You CANNOT
+get your changes back in that case! so first check git diff and git diff --staged
+
+$ git checkout master
+checks out the master branch (i.e. the latest commit on the original branch)
+
+How can you use the staging area to make sure you have one commit per logical
+change?
+You can use it to add all the different files that may be affected by a single
+logical change. You can also use it to check against your latest committed files
+to make sure that the changes are exactly the files and code that you want to
+push through.
+
+detached HEAD means you are looking at a commit that isn't labeled with a branch
+name.
+
+current last commit on the branch is the 'tip' of that branch
+
+updating a branch will only commit to the branch you have checked out (*) and
+leave all the others alone.
+
+Making a branch
+$ git branch
+
+shows a list of your current branches and an asterisk next to the branch
+currently checked out.
+
+$ git branch branch-name
+
+creates a branch with the name branch-name
+
+$ git checkout branch-name
+
+checks our the branch-name branch (which means that is the branch that will
+change when you make commits)
+
+What are some situations when branches would be helpful in keeping your history
+organized? How would branches help?
+
+When you want to create different versions of your solution but keep a production
+code free from errors introduced by experimenting with the code
