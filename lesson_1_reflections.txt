@@ -1,0 +1,133 @@
+GIT
+
+Why is using diff to find bugs useful?
+using diff to find bugs
+navigate to the file directory
+$ diff -u old_file.py new_file.py
+this means that you can easily compare two versions
+of code through the command line, and the additions
+and deletions / differences will be highlighted, which
+saves sifting through thousands of lines of code.
+
+
+How can having access to an entire history of a file make you
+a better programmer?
+
+- By being able to learn from previous mistakes
+- By being able to re-use previous and less refined versions
+of code for subsequent projects
+
+
+When would you want version of your code change?
+- regular intervals? (probably won't make that sense from
+code details)
+- after break in coding (might get unusable changes)
+- at a certain length of loc
+- manual choice
+
+$ git log
+in your code directory - available offline
+every change that has been made to the code
+
+$ git diff
+can compare different versions of a file through git
+(using the commit IDs from the git log)
+
+What do you think are the pros and cons of manually choosing when to create
+a commit, like you do in Git, vs having versions automatically saved,
+like Google Docs does?
+
+pros: at logical break points; easy to understand; won't clutter history.
+cons: may forget and lose content if there are no auto saves. May create too
+large commits
+
+$ git log --stat
+gives you the statistics of commits (which files were changed in each commit,
+and were things added or taken away Shown in green plus and red minus signs)
+
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+Because most programs and applications require many different files to be able
+to run, and being able to track changes across all files for a version means
+that things like function names or arguments can be tracked for a version.
+
+$ git config --global color.ui auto
+
+makes sure your log and diffs are coloured (green, red etc) so that diffs are
+easier to spot.
+
+$ git log
+scroll down with the down arrow to get to the commit you want to check
+
+$ git diff first_id second_id
+ 2nd id b0678b161fcf74467ed3a63110557e3d6229cfa6
+ 1st id f19cb1b80fe27e938e4d72770ca0a42f25e99ecc
+
+q to quit
+
+git diff considers the first argument to be 'the original' and the second
+argument to be 'the new / the changed'.
+
+How can you use the commands git log and git diff to view the history of files?
+git log shows you the list of commits and the description for each commit.
+Once you've found two versions that you want to compare, git diff shows you
+the additions and deletions between the two versions.
+
+$ git checkout <commit_id>
+
+this reverts your repository to a previous version, so that you can investigate
+how a recent bug has occurred, for example.
+
+cmd shift h in the finder finds you home directory
+
+How might using version control make you more confident to make changes
+that could break something?
+
+Using version control means that even if your changes break something, you can
+easily revert back to a previous version of your code. debugging is also easier
+when you can easily check exactly which version that introduced the bug.
+
+Enter atom . to open your user directory in Atom.
+
+atom ~/.bash_profile opens your bash profile in atom.
+Instructions from: http://tutorials.jumpstartlab.com/academy/workshops/terminal_and_editor.html
+
+pappu pakia most recent commit: fa4c6bade4970c282b3870ad16f1bde8164663a9
+
+
+checked ou 547f4171a82ec6429d002c1acef357aec41d3f17 - no bugs
+
+this commit introduced the bug of nothing appearing:
+547f4171a82ec6429d002c1acef357aec41d3f17
+no bug: 71d52709ddc4066e7a79a1d0a412e43429a0cdeb
+
+check what introduced it
+original: 71d52709ddc4066e7a79a1d0a412e43429a0cdeb
+change w bug: 547f4171a82ec6429d002c1acef357aec41d3f17
+
+bug of clones:
+
+no bug: 746f762e38b5bbb7d0b837464ef6ec3f8ee5bf91
+
+introduced bug:  003c8c197cd3b1e5b28b58f53ee14d7ebaa9bb3a
+
+$ ls -a
+on the command line in a directory also shows you hidden files
+
+A repository shows you all the commit versions (as logged in the hidden .git
+file)
+
+You can create a reopsitory in an empty directory or in a directory that already
+contains files.
+
+$ git init
+
+this initialises a git repository in the folder you are in. This could be an
+empty repository or already contain files. When you initialise a repository,
+git doesn't create any commits for you - you'll have to create the first commit
+yourself.
+
+$ git status
+in your git repository. Shows which files have changed since the last commit.
