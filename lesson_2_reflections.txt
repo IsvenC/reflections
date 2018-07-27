@@ -1,0 +1,20 @@
+What happens when you initialize a repository? Why do you need to do it?
+
+When you initialise you create the .git file that tracks all the commits. You
+need to do that so that versions are tracked and added.
+
+$ git add <file>
+e.g. $ git add helloworld.py
+
+adds a file to the staging area.
+
+'Changes to be committed' lists files to be added to the staging area
+
+$ git reset <file>
+
+removes the fu=ile from the staging area, but keeps it in your working directory
+If you accidentally add a file to the staging area, you can remove it using git
+reset. For example, if you accidentally add lesson_2_reflections.txt, but don’t
+want it to be committed yet, run git reset lesson_2_reflections.txt and the file
+will be removed from the staging area, but it will still be in your working
+directory.
