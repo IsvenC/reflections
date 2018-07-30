@@ -100,3 +100,34 @@ organized? How would branches help?
 
 When you want to create different versions of your solution but keep a production
 code free from errors introduced by experimenting with the code
+when you are doing 'anything different' - context switching, fixing bugs etc.
+
+master = production qualuti branch that never breaks.
+
+A common workflow is to make a new branch for every feature or bug fix when you
+work with other people on a project. once you're "done" with a branch, you can
+either update 'master' to point to the tip of the branch you've been working on,
+or merge your branch with the master branch.
+
+'remota branch' means you didn't create the branch yourself, but it behaves like
+branches you've created yourself
+
+$ git log --graph --oneline master branch-name
+visualises the difference between branches
+each commit knows about its parent.
+
+git log starts with the current commit and traces back to a commit that doesn't
+have a parent (usually the initial commit )
+
+'HEAD' means the current commit. 'detached HEAD' means that the commit that is
+checked out is not reachable,
+
+$ git checkout -b new_branch_name
+
+is equivalent to doing:
+$ git branch new_branch_name
+$ git checkout new_branch_name
+
+How do the diagrams help you visualize the branch structure?
+The visual tree diagrams help to understand how the struture of the commits
+hang together, and which ones that directly follow on from each other. 
