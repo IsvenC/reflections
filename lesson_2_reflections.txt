@@ -130,4 +130,69 @@ $ git checkout new_branch_name
 
 How do the diagrams help you visualize the branch structure?
 The visual tree diagrams help to understand how the struture of the commits
-hang together, and which ones that directly follow on from each other. 
+hang together, and which ones that directly follow on from each other.
+
+$ git gc
+
+If a branch is deleted and leaves some commits unreachable from existing
+branches, those commits will continue to be accessible by commit id, until Git’s
+garbage collection runs. This will happen automatically from time to time,
+unless you actively turn it off. You can also run this process manually with
+git gc.
+
+
+Merging branches
+Onve you have merged the branches, you can delete the branch label that you
+have discarded. The merged commits will be shown by timestamp order after they
+have been merged into the same branch.
+
+Make sure you have the branch you want to merge into (master in this case)
+checked out
+$ git branch
+$ git checkout master
+
+
+$ git merge master new_branch_name
+
+merges the new_branch_name with the master (your checked out branch) if no
+conflicts are found.
+
+$ git branch -d branch_name
+deletes the branch called branch_name. This discards changes if you haven't
+merged the deleted branch.
+
+$ git show commit_id
+
+shows the difference introduced by a commit compared to its parent commit.
+
+
+What is the result of merging two branches together? Why do we represent it in
+the diagram the way we do?
+
+The result is one branch with a new tip of the branch you have merged into.
+The combined branch has two parents since there are two branches pointing into
+it.
+
+Merge conflicts
+
+when there are conflicts in the code, you will be shown both branches' versions
+of the code as well as the 'common ancestor'.
+
+you let git know that the conflict is solved by committing the resolution.
+
+If you look at git status while you are still in the conflict stage, it will
+show 'both modified <file_name>' as both branches have modified the file.
+if you save and stage the file (after having fixed the conflicts) it will say
+'all conflicts fixed but still merging'. Only after you commit the file will
+the conflict be resolved and actual changes committed.
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges
+manually?
+
+Pros: quick when there are no conflicts (which otherwise would mean long code
+reviews everytime a function or new code is added)
+
+Cons: code isn't manually inspected and tested, so poor quality new code can
+make its way into production if tests are not performed as standard.
+
+COMMIT OFTEN! 
