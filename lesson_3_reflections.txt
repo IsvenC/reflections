@@ -1,2 +1,47 @@
-When would you want to use a remote repository rather than keeping all your work local?
-When you are working with others, or when you want to be able to access your work from outside your local machine. 
+lesson 4
+github lets you manually decide when you want to update your github repository. \
+
+First you need to create an empty repository. remote repositires are called
+"remotes". You can push and pull data to and from remotes. You specify a branch
+and all the commits for that branch are sent.
+
+if the commit is already in githubs repository, it won't get sent. only the
+commits for your branch will be pushed to github.
+
+$ git remote add remote_repository_name repo_url
+
+adds a remote repository (e.g. github repo) to your local git repository.
+
+$ git remote
+
+lists the remotes you have in the git repository.
+
+$ git remote -v
+
+this also give the URL you will fetch data from and push data to.
+
+$ git push remote_repository_name local_branch_name
+
+by default, the branch created in github will have the same name as the local
+branch name you pushed.
+
+you can create and edit plain text files directly on the github website.
+
+$ git pull remote_repository_name remote_branch_name
+
+you want to have the right branch name checked out
+
+
+When would you want to use a remote repository rather than keeping all your work
+local?
+When you are working with others, or when you want to be able to access your work
+from outside your local machine.
+
+Remote is basically a reference to another repository
+
+Why might you want to always pull changes manually rather than having Git
+automatically stay up-to-date with your remote repository?
+
+Because you want to have control over the changes to the branches you are
+pulling, so that you know what version of code you are using / have on your
+machine. 
